@@ -8,14 +8,14 @@ def Predict_Winner(playerMove, computerMove):
 	
 	if playerMove == computerMove:
 		return "None"
-	
+
 	if playerMove == 0 and computerMove == 1:
 		return "You"
 	elif playerMove == 1 and computerMove == 2:
 		return "You"
 	elif playerMove == 2 and computerMove == 0:
 		return "You"
-		
+
 	if playerMove == 1 and computerMove == 0:
 		return "Computer"
 	elif playerMove == 2 and computerMove == 1:
@@ -23,7 +23,7 @@ def Predict_Winner(playerMove, computerMove):
 	elif playerMove == 0 and computerMove == 2:
 		return "Computer"
 
-model = load_model("/Users/qsami/Desktop/SavedModel6")
+model = load_model("SavedModel6")
 cap = cv2.VideoCapture(0)
 frame = None
 
@@ -36,7 +36,6 @@ gameStarted = False
 winner = "None"
 
 moves = ["paper", "rock", "scissors", "none"]
-computerMovePath = "/Users/qsami/Desktop/rock-paper-scissors/images/"
 
 while True:
 	ret, frame = cap.read()
@@ -77,13 +76,11 @@ while True:
 	cv2.rectangle(frame, (800,100), (1200,500), (255,255,255), 2)
 	
 	cv2.putText(img = frame, text = "Your Move: " + moves[playerMove], org = (100, 90), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.7, color=(255,255,255))
-	
 	cv2.putText(img = frame, text = "Computer's Move: " + moves[computerMove], org = (800, 90), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.7, color=(255,255,255))
-	
 	cv2.putText(img = frame, text = "Winner: " + winner, org = (550, 550), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, color=(255,255,255))
 	
 	if(playerMove != 3):
-		icon = cv2.imread("/Users/qsami/Desktop/rock-paper-scissors/images/" + moves[computerMove] + ".png")
+		icon = cv2.imread("images/" + moves[computerMove] + ".png")
 		icon = cv2.resize(icon, (400,400))
 		frame[100:500, 800:1200] = icon
 	
