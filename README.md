@@ -8,3 +8,6 @@ Implemented transfer learning to create this AI. Trained the last layer of the M
 
 https://user-images.githubusercontent.com/74414105/194912122-882a1f83-ffc5-4d1b-9953-38c19a92d180.mov
 
+<h2>Testing:</h2>
+
+First run the "requirements.txt" file in the terminal using the following command: pip install -r /path/to/requirements.txt. It will install all the required dependencies. Then in the terminal run the "rps.py" file using the command: python3 /path/to/rps.py.
