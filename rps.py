@@ -3,6 +3,7 @@ from keras.applications.mobilenet import preprocess_input
 import cv2
 import numpy as np
 import random as rnd
+import os
 
 def Predict_Winner(playerMove, computerMove):
 	
@@ -23,7 +24,9 @@ def Predict_Winner(playerMove, computerMove):
 	elif playerMove == 0 and computerMove == 2:
 		return "Computer"
 
-model = load_model("SavedModel6")
+model_path = os.path.join(os.path.dirname(__file__), 'SavedModel6')	
+	
+model = load_model(model_path)
 cap = cv2.VideoCapture(0)
 frame = None
 
